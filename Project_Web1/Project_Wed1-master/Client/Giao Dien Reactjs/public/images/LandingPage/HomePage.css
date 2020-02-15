@@ -1,0 +1,16 @@
+.mybody{
+    margin: 0 auto;
+    width: 97%;
+}
+.bg-primary-darker{
+    background: #0475EF;
+}
+.bg-active{
+    background: #4DA3FF;
+}
+.logo img{
+    vertical-align: middle;
+    background-color: transparent;
+    width: 35px;
+    height: 35px;
+}

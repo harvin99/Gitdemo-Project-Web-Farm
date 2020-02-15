@@ -1,0 +1,13 @@
+.mybody{
+    margin: 2% auto;
+    width: 95%;
+}
+.bg-active{
+    background: #4DA3FF;
+}
+.bg-light-darker{
+    background: #E9ECEF;
+}
+.form-group label{
+    font-weight: bold;;
+}
