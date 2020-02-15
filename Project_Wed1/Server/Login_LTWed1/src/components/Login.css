@@ -1,0 +1,78 @@
+.login{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background: rgba(54, 54, 54, 0.8);
+    padding: 40px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+}
+.iconuser{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+.login h2{
+    margin: 0 0 20px;
+    margin-top: 20px;
+    color: #fff;
+    text-align: center;
+}
+.inputlogin{
+    position: relative;
+}
+.login .inputlogin input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    margin-bottom: 30px;
+    outline: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+}
+.login .inputlogin label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+.login .inputlogin input:focus ~ label,
+.login .inputlogin input:valid ~ label{
+    top: -20px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+}
+.login button{
+    background: #03a9f4;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    padding: 2% 5%;
+    color: #fff;
+    outline: none;
+    display: block;
+    margin-bottom: 10px;
+}
+.login button:hover{
+    background: LightSkyBlue;
+}
+.login a{
+    color: #fff;
+    text-decoration: none;
+}
+.login a:hover{
+    color: LightSkyBlue;
+}
