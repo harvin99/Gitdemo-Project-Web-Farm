@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RoomManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ImagesRoomCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCategory" Type="int" />
+    <Property Name="Source" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="RentRoom">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roomID" Type="int" Nullable="false" />
+    <Property Name="renterName" Type="nvarchar" MaxLength="50" />
+    <Property Name="tel" Type="nvarchar" MaxLength="15" />
+    <Property Name="price" Type="float" />
+    <Property Name="date" Type="date" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCategory" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="RoomCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="real" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USDDetails">
+    <Key>
+      <PropertyRef Name="usID" />
+      <PropertyRef Name="sID" />
+      <PropertyRef Name="times" />
+    </Key>
+    <Property Name="usID" Type="int" Nullable="false" />
+    <Property Name="sID" Type="int" Nullable="false" />
+    <Property Name="times" Type="int" Nullable="false" />
+    <Property Name="price" Type="float" />
+    <Property Name="date" Type="date" />
+  </EntityType>
+  <EntityType Name="UsedServices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rentRoomID" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <Association Name="FK__RentRoom__roomID__48CFD27E">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="RentRoom" Type="Self.RentRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RentRoom">
+        <PropertyRef Name="roomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USDDetails__sID__04E4BC85">
+    <End Role="Services" Type="Self.Services" Multiplicity="1" />
+    <End Role="USDDetails" Type="Self.USDDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="USDDetails">
+        <PropertyRef Name="sID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USDDetails__usID__03F0984C">
+    <End Role="UsedServices" Type="Self.UsedServices" Multiplicity="1" />
+    <End Role="USDDetails" Type="Self.USDDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsedServices">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="USDDetails">
+        <PropertyRef Name="usID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UsedServi__rentR__4AB81AF0">
+    <End Role="RentRoom" Type="Self.RentRoom" Multiplicity="1" />
+    <End Role="UsedServices" Type="Self.UsedServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentRoom">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsedServices">
+        <PropertyRef Name="rentRoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImagesRoomCategory_ToTable">
+    <End Role="RoomCategory" Type="Self.RoomCategory" Multiplicity="0..1" />
+    <End Role="ImagesRoomCategory" Type="Self.ImagesRoomCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ImagesRoomCategory">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_ToTable">
+    <End Role="RoomCategory" Type="Self.RoomCategory" Multiplicity="0..1" />
+    <End Role="Room" Type="Self.Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RoomManagerModelStoreContainer">
+    <EntitySet Name="ImagesRoomCategory" EntityType="Self.ImagesRoomCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentRoom" EntityType="Self.RentRoom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomCategory" EntityType="Self.RoomCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USDDetails" EntityType="Self.USDDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsedServices" EntityType="Self.UsedServices" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__RentRoom__roomID__48CFD27E" Association="Self.FK__RentRoom__roomID__48CFD27E">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="RentRoom" EntitySet="RentRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USDDetails__sID__04E4BC85" Association="Self.FK__USDDetails__sID__04E4BC85">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="USDDetails" EntitySet="USDDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USDDetails__usID__03F0984C" Association="Self.FK__USDDetails__usID__03F0984C">
+      <End Role="UsedServices" EntitySet="UsedServices" />
+      <End Role="USDDetails" EntitySet="USDDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UsedServi__rentR__4AB81AF0" Association="Self.FK__UsedServi__rentR__4AB81AF0">
+      <End Role="RentRoom" EntitySet="RentRoom" />
+      <End Role="UsedServices" EntitySet="UsedServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImagesRoomCategory_ToTable" Association="Self.FK_ImagesRoomCategory_ToTable">
+      <End Role="RoomCategory" EntitySet="RoomCategory" />
+      <End Role="ImagesRoomCategory" EntitySet="ImagesRoomCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_ToTable" Association="Self.FK_Room_ToTable">
+      <End Role="RoomCategory" EntitySet="RoomCategory" />
+      <End Role="Room" EntitySet="Room" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

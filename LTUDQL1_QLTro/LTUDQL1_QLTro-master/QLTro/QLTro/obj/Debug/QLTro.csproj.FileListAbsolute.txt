@@ -1,0 +1,80 @@
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\bin\Debug\QLTro.exe.config
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\QLTro.csprojResolveAssemblyReference.cache
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\MainWindow.g.cs
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\App.g.cs
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\QLTro_MarkupCompile.cache
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\QLTro_MarkupCompile.lref
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\bin\Debug\QLTro.exe
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\bin\Debug\QLTro.pdb
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\MainWindow.baml
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\QLTro.g.resources
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\QLTro.Properties.Resources.resources
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\QLTro.csproj.GenerateResource.Cache
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\QLTro.exe
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\QLTro.pdb
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\InsertRoom.g.cs
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\InsertRoomCategory.g.cs
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\InsertRoom.baml
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\InsertRoomCategory.baml
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\App.baml
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\DetailRoomCategory.g.cs
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\DetailRoomCategory.baml
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\ConfirmWindow.g.cs
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\ConfirmWindow.baml
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\DetaliRoom.g.cs
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\DetaliRoom.baml
+C:\Users\Sang\Desktop\Lesson\LTUD\DA\QLPhongTro\QLTro\QLTro\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Sang\Desktop\1760300_1760404_1760323_\QLPhongTro\QLTro\QLTro\bin\Debug\RoomManager_log.ldf
+C:\Users\Sang\Desktop\1760300_1760404_1760323_milestone01\QLPhongTro\QLTro\QLTro\bin\Debug\QLTro.exe.config
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\QLTro.exe.config
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\QLTro.csprojResolveAssemblyReference.cache
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\ConfirmWindow.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\DetailRoomCategory.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\DetaliRoom.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\InsertRoom.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\InsertRoomCategory.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\MainWindow.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\App.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\QLTro_Content.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\QLTro_MarkupCompile.cache
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\QLTro_MarkupCompile.lref
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\RoomManager.mdf
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\RoomManager_log.ldf
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\QLTro.exe
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\QLTro.pdb
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\Aspose.Cells.dll
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\EntityFramework.dll
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\EntityFramework.SqlServer.dll
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\EntityFramework.xml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\EntityFramework.SqlServer.xml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\App.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\ConfirmWindow.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\DetailRoomCategory.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\DetaliRoom.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\InsertRoom.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\InsertRoomCategory.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\MainWindow.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\QLTro.g.resources
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\QLTro.Properties.Resources.resources
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\QLTro.csproj.GenerateResource.Cache
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\QLTro.exe
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\QLTro.pdb
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\RentRoomInfoWindow.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\RentRoomInfoWindow.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\ServicesInfoWindow.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\ServicesInfoWindow.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\UsedServicesInfoWindow.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\UsedServicesInfoWindow.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\USDDetailWindow.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\USDDetailWindow.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\CheckOutWindow.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\CheckOutWindow.baml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\LiveCharts.dll
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\LiveCharts.Wpf.dll
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\LiveCharts.pdb
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\LiveCharts.xml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\LiveCharts.Wpf.pdb
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\bin\Debug\LiveCharts.Wpf.xml
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\analysisWindow.g.cs
+E:\code hk1-nam3\udql\LTUDQL1_QLTro\QLTro\QLTro\obj\Debug\analysisWindow.baml

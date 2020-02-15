@@ -1,0 +1,32 @@
+﻿<Window x:Class="QLTro.InsertRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+        mc:Ignorable="d"
+        Title="InsertRoom" Height="200" Width="350" Loaded="Window_Loaded">
+    <Grid Background="AliceBlue">
+        <DockPanel Margin="5">
+            <Label FontSize="20" HorizontalAlignment="Center" DockPanel.Dock="Top">Nhập Phòng</Label>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="btinsert" Margin="5" Padding="5" Click="btinsert_Click">Add</Button>
+                <Button Name="btcancel" Margin="5" Padding="5" Click="btcancel_Click">Cancel</Button>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5">Loại Phòng:</TextBlock>
+                    <ComboBox Margin="5" Width="70" Name="cbbRctgr"></ComboBox>
+                    <TextBlock Margin="5">Số Phòng</TextBlock>
+                    <TextBox Name="tbsophong" Margin="5" Width="50"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5">Status:</TextBlock>
+                    <RadioButton Name="rbttrong" Margin="5" IsChecked="True">Trống</RadioButton>
+                    <RadioButton Name="rbtdaconguoithue" Margin="5">Đã Có Người Thuê</RadioButton>
+                    <RadioButton Name="rbtsuachua" Margin="5">Sữa Chữa</RadioButton>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

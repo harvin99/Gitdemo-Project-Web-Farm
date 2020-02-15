@@ -1,0 +1,52 @@
+﻿<Window x:Class="QLTro.DetaliRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+        mc:Ignorable="d"
+        Title="DetaliRoom" Height="180" Width="300" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:StatusRoomConverter x:Key="converter"/>
+    </Window.Resources>
+    <Grid Background="AliceBlue">
+        <DockPanel Margin="5">
+            <Label FontSize="20" HorizontalAlignment="Center" DockPanel.Dock="Top">Thông Tin Phòng</Label>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="btnRent" Margin="5" Padding="5" Click="btnRent_Click">Rent</Button>
+                <Button Name="btapply" Margin="5" Padding="5" Click="btapply_Click" IsEnabled="False">Apply</Button>
+                <Button Name="btedit" Margin="5" Padding="5" Click="btedit_Click">Edit</Button>
+                <Button Name="btdelete" Margin="5" Padding="5" Click="btdelete_Click">Delete</Button>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Height="auto" Name="stackpennalshow">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="5">Loại Phòng:</TextBlock>
+                        <TextBlock Margin="5" Text="{Binding Path=RoomCategory.Name}"></TextBlock>
+                        <TextBlock Margin="5">Tên Phòng</TextBlock>
+                        <TextBlock Margin="5" Text="{Binding Path=Name}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="5">Status:</TextBlock>
+                        <TextBlock Name="tbstatus" Margin="5" Text="{Binding  Path=Status, Converter={StaticResource converter}}"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Height="0" Name="stackpennaledit">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="5">Loại Phòng:</TextBlock>
+                        <ComboBox Margin="5" Width="70" Name="cbbRctgr"></ComboBox>
+                        <TextBlock Margin="5">Số Phòng</TextBlock>
+                        <TextBox Name="tbsophong" Margin="5" Width="50"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="5">Status:</TextBlock>
+                        <RadioButton Name="rbttrong" Margin="5" IsChecked="True">Trống</RadioButton>
+                        <RadioButton Name="rbtdaconguoithue" Margin="5">Đã Có Người Thuê</RadioButton>
+                        <RadioButton Name="rbtsuachua" Margin="5">Sữa Chữa</RadioButton>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+
+    </Grid>
+</Window>

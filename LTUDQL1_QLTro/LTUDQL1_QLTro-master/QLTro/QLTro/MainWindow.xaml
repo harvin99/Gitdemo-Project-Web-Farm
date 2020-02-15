@@ -1,0 +1,347 @@
+﻿<Window x:Class="QLTro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="725" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:StatusRoomConverter x:Key="converter"/>
+    </Window.Resources>
+    <Grid>
+        <TabControl TabStripPlacement="Left">
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                </Style>
+            </TabControl.ItemContainerStyle>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="90">
+                        <Image Height="20"></Image>
+                        <TextBlock Text="Room" Margin="2,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <DockPanel>
+                    <Label DockPanel.Dock="Top" Background="AliceBlue" BorderThickness="0 0 0 1" BorderBrush="White">Quản lý Phòng Trọ</Label>
+                    <ToolBar DockPanel.Dock="Top" BorderThickness="0 0 0 1" BorderBrush="White">
+                        <Button Name="btinsert" Click="btinsert_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Method.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Nhập</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button Name="btimprot_SP" Click="btimprot_SP_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Excel.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Import</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button Name="btSave" Click="btSave_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Save.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Save</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button>
+                            <StackPanel Orientation="Horizontal" Cursor="Hand" MouseLeftButtonDown="StackPanel_Refresh_MouseLeftButtonDown">
+                                <Image Source="Images\Refresh.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Refresh</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </ToolBar>
+                    <StackPanel Background="AliceBlue" DockPanel.Dock="Bottom" Height="25" Orientation="Horizontal">
+                        <Label>Tổng Sản Phẩm:</Label>
+                        <TextBlock VerticalAlignment="Center" Text="{Binding Count}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel>
+                        <Border BorderThickness="1" Background="AliceBlue">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center">Search by Name:</TextBlock>
+                                <TextBox Width="200" Name="tbfiltername" TextChanged="tbfiltername_TextChanged"></TextBox>
+                            </StackPanel>
+                        </Border>
+                        <TabControl Name="tabctrlRoom">
+                            <TabItem Header="Loại Phòng">
+                                <DataGrid Name="loaiphongdatagrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Width="1.1*" Header="Mã Loại Phòng" Binding="{Binding Id}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Tên Loại Phòng" Binding="{Binding Name}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Mô Tả" Binding="{Binding Description}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Giá" Binding="{Binding Price}"></DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                    <DataGrid.RowStyle>
+                                        <Style TargetType="DataGridRow">
+                                            <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
+                                        </Style>
+                                    </DataGrid.RowStyle>
+                                </DataGrid>
+                            </TabItem>
+                            <TabItem Header="Phòng">
+                                <DataGrid Name="phongdatagrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Width="*" Header="Mã Phòng" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Tên Phòng" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Loại Phòng" Binding="{Binding Path=RoomCategory.Name}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Tình Trạng" Binding="{Binding  Path=Status, Converter={StaticResource converter}}"></DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                    <DataGrid.RowStyle>
+                                        <Style TargetType="DataGridRow">
+                                            <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
+                                        </Style>
+                                    </DataGrid.RowStyle>
+                                </DataGrid>
+                            </TabItem>
+                        </TabControl>
+                    </StackPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="90">
+                        <Image Height="20"></Image>
+                        <TextBlock Text="Rent Room" Margin="2,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <DockPanel>
+                    <Label DockPanel.Dock="Top" Background="AliceBlue" BorderThickness="0 0 0 1" BorderBrush="White">Quản lý Phòng Trọ</Label>
+                    <ToolBar DockPanel.Dock="Top" BorderThickness="0 0 0 1" BorderBrush="White">
+                        <Button Name="btnInsertRentRoom" Click="btnInsertRentRoom_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Method.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Nhập</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button Name="btnImportRentRoom" Click="btnImportRentRoom_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Excel.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Import</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button Name="btnSaveRentRoom" Click="btnSaveRentRoom_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Save.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Save</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button>
+                            <StackPanel Orientation="Horizontal" Cursor="Hand" MouseLeftButtonDown="StackPanel_Refresh_MouseLeftButtonDown">
+                                <Image Source="Images\Refresh.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Refresh</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </ToolBar>
+                    <StackPanel Background="AliceBlue" DockPanel.Dock="Bottom" Height="25" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btnPreviousPageRentRoom" Click="btnPreviousPageRentRoom_Click" >Prev</Button>
+                            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBox Name="tbxCurrentPageRentRoom" Width="25" KeyDown="tbxCurrentPageRentRoom_KeyDown" />
+                                <TextBlock Margin=" 5,0,5,0"> /</TextBlock>
+                                <TextBlock Name="tbTotalPageRentRoom" Width="25"></TextBlock>
+
+
+                            </StackPanel>
+                            <Button Name="btnNextPageRentRoom" Click="btnNextPageRentRoom_Click" >Next</Button>
+
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <Border BorderThickness="1" Background="AliceBlue">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center">Search by Name:</TextBlock>
+                                <TextBox Width="200" Name="tbSearchRentRoom" TextChanged="tbSearchRentRoom_TextChanged"></TextBox>
+                            </StackPanel>
+                        </Border>
+                        <TabControl Name="tcRentRoom">
+                            <TabItem Header="Rent Room">
+                                <DataGrid Name="dgRentRoom" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Width="1.1*" Header="ID" Binding="{Binding id}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Room ID" Binding="{Binding roomID}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Renter Name" Binding="{Binding renterName}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Tel" Binding="{Binding tel}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Price" Binding="{Binding price}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Date" Binding="{Binding date}"></DataGridTextColumn>
+
+                                    </DataGrid.Columns>
+                                    <DataGrid.RowStyle>
+                                        <Style TargetType="DataGridRow">
+                                            <EventSetter Event="MouseDoubleClick" Handler="dgRentRoom_MouseDoubleClick"/>
+                                        </Style>
+                                    </DataGrid.RowStyle>
+                                </DataGrid>
+                            </TabItem>
+                        </TabControl>
+                    </StackPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="90">
+                        <Image Height="20"></Image>
+                        <TextBlock Text="Services" Margin="2,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <DockPanel>
+                    <Label DockPanel.Dock="Top" Background="AliceBlue" BorderThickness="0 0 0 1" BorderBrush="White">Quản lý Phòng Trọ</Label>
+                    <ToolBar DockPanel.Dock="Top" BorderThickness="0 0 0 1" BorderBrush="White">
+                        <Button Name="btnInsertServices" Click="btnInsertServices_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Method.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Nhập</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button Name="btnImportServices" Click="btnImportServices_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Excel.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Import</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button Name="btnSaveServices" Click="btnSaveServices_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Save.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Save</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button>
+                            <StackPanel Orientation="Horizontal" Cursor="Hand" MouseLeftButtonDown="StackPanel_Refresh_MouseLeftButtonDown">
+                                <Image Source="Images\Refresh.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Refresh</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </ToolBar>
+                    <StackPanel Background="AliceBlue" DockPanel.Dock="Bottom" Height="25" Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btnPreviousPageServices" Click="btnPreviousPageServices_Click" Content="Prev" Margin="0,0,0,-0.2" />
+                            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBox x:Name="tbxCurrentPageServices" Width="25" KeyDown="tbxCurrentPageServices_KeyDown" />
+                                <TextBlock Margin=" 5,0,5,0"><Run Text="/"/></TextBlock>
+                                <TextBlock x:Name="tbTotalPageServices" Width="25"/>
+
+
+                            </StackPanel>
+                            <Button x:Name="btnNextPageServices" Click="btnNextPageServices_Click" Content="Next" />
+
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <Border BorderThickness="1" Background="AliceBlue">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center">Search by Name:</TextBlock>
+                                <TextBox Width="200" Name="tbSearchServices" TextChanged="tbSearchServices_TextChanged"></TextBox>
+                            </StackPanel>
+                        </Border>
+                        <TabControl Name="tcServices">
+                            <TabItem Header="Services">
+                                <DataGrid Name="dgServices" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Width="1.1*" Header="ID" Binding="{Binding id}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Name" Binding="{Binding name}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Price" Binding="{Binding price}"></DataGridTextColumn>
+
+                                    </DataGrid.Columns>
+                                    <DataGrid.RowStyle>
+                                        <Style TargetType="DataGridRow">
+                                            <EventSetter Event="MouseDoubleClick" Handler="dgServices_MouseDoubleClick"/>
+                                        </Style>
+                                    </DataGrid.RowStyle>
+                                </DataGrid>
+                            </TabItem>
+                        </TabControl>
+                    </StackPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="90" Cursor="Hand" MouseLeftButtonDown="StackPanel_Refresh_MouseLeftButtonDown">
+                        <Image Height="20"></Image>
+                        <TextBlock Text="Used Services" Margin="2,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <DockPanel>
+                    <Label DockPanel.Dock="Top" Background="AliceBlue" BorderThickness="0 0 0 1" BorderBrush="White">Quản lý Phòng Trọ</Label>
+                    <ToolBar DockPanel.Dock="Top" BorderThickness="0 0 0 1" BorderBrush="White">
+                        <Button Name="btnInsertUsedServices" Click="btnInsertUsedServices_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Method.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Nhập</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button Name="btnImportUsedServices" Click="btnImportUsedServices_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Excel.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Import</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button Name="btnSaveUsedServices" Click="btnSaveUsedServices_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Save.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Save</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Separator />
+                        <Button>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Refresh.png" Width="20" Height="20"></Image>
+                                <TextBlock VerticalAlignment="Center">Refresh</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </ToolBar>
+                    <StackPanel Background="AliceBlue" DockPanel.Dock="Bottom" Height="25" Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btnPreviousPageUsedServices" Click="btnPreviousPageUsedServices_Click" Content="Prev" Margin="0,0,0,-0.2" />
+                            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBox x:Name="tbxCurrentPageUsedServices" Width="25" KeyDown="tbxCurrentPageUsedServices_KeyDown" />
+                                <TextBlock Margin=" 5,0,5,0"><Run Text="/"/></TextBlock>
+                                <TextBlock x:Name="tbTotalPageUsedServices" Width="25"/>
+
+
+                            </StackPanel>
+                            <Button x:Name="btnNextPageUsedServices" Click="btnNextPageUsedServices_Click" Content="Next" />
+
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <Border BorderThickness="1" Background="AliceBlue">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center">Search by Name:</TextBlock>
+                                <TextBox Width="200" Name="tbSearchUsedServices" TextChanged="tbSearchUsedServices_TextChanged"></TextBox>
+                            </StackPanel>
+                        </Border>
+                        <TabControl Name="tcUsedServices">
+                            <TabItem Header="Used Services">
+                                <DataGrid Name="dgUsedServices" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Width="1.1*" Header="ID" Binding="{Binding id}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Rent Room ID" Binding="{Binding rentRoomID}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Date" Binding="{Binding date}"></DataGridTextColumn>
+                                        <DataGridTextColumn Width="2*" Header="Status" Binding="{Binding status}"></DataGridTextColumn>
+
+                                    </DataGrid.Columns>
+                                    <DataGrid.RowStyle>
+                                        <Style TargetType="DataGridRow">
+                                            <EventSetter Event="MouseDoubleClick" Handler="dgUsedServices_MouseDoubleClick"/>
+                                        </Style>
+                                    </DataGrid.RowStyle>
+                                </DataGrid>
+                            </TabItem>
+                        </TabControl>
+                    </StackPanel>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

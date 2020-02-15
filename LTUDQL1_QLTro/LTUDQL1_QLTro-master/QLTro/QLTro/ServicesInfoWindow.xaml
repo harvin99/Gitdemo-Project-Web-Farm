@@ -1,0 +1,87 @@
+﻿<Window x:Class="QLTro.ServicesInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+        xmlns:validate="clr-namespace:QLTro.validate"
+        
+        mc:Ignorable="d"
+        Title="ServicesInfoWindow" Height="300" Width="300" Closing="Window_Closing">
+    <DockPanel>
+        <Label Name="lbTitle" FontSize="20" HorizontalAlignment="Center" DockPanel.Dock="Top">Services Information</Label>
+
+        <StackPanel Name="spServicesInfo" DockPanel.Dock="Top" Loaded="spServicesInfo_Loaded">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">ID:</TextBlock>
+                <TextBlock Name="tbID" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"> Name:</TextBlock>
+                <TextBlock Name="tbName" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Price:</TextBlock>
+                <TextBlock Name="tbPrice" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Padding="5" Name="btnEditServices" Click="btnEditServices_Click">Edit</Button>
+                <Button Margin="5" Padding="5" Name="btnDeleteServices" Click="btnDeleteServices_Click">Delete</Button>
+            </StackPanel>
+        </StackPanel>
+
+
+
+        <StackPanel Name="spServicesAE" DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Width="100">ID:</TextBlock>
+                <TextBox Background="#cccccc" IsReadOnly="True" Name="tbxID" VerticalAlignment="Center" Width="150" 
+                         Style="{StaticResource errorTextBox}" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="id" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validate:NumberValidation ></validate:NumberValidation>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+           
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Margin="5" Width="100">Name:</TextBlock>
+                <TextBox Name="tbxName" VerticalAlignment="Center"  Width="150"></TextBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Margin="5" Width="100">Price:</TextBlock>
+                <TextBox Name="tbxPrice" VerticalAlignment="Center"   Width="150"
+                Style="{StaticResource errorTextBox}" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="price" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validate:NumberValidation ></validate:NumberValidation>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            
+
+
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Padding="5" Name="btnAddServices" Click="btnAddServices_Click">Add</Button>
+                <Button Margin="5" Padding="5" Name="btnSaveServices" Click="btnSaveServices_Click">Save</Button>
+                <Button Margin="5" Padding="5" Name="btnCancelServices" Click="btnCancelServices_Click">Cancel</Button>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Name="tbErrorMessage" Foreground="Red" ></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+
+    </DockPanel>
+</Window>

@@ -1,0 +1,118 @@
+﻿<Window x:Class="QLTro.USDDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+        xmlns:validate="clr-namespace:QLTro.validate"
+        mc:Ignorable="d"
+        Title="USDDetailWindow" Height="300" Width="300" Closing="Window_Closing">
+    <DockPanel>
+        <Label Name="lbTitle" FontSize="20" HorizontalAlignment="Center" DockPanel.Dock="Top">USDDetails Information</Label>
+
+        <StackPanel Name="spUSDDetailsInfo" DockPanel.Dock="Top" Loaded="spUSDDetailsInfo_Loaded">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Used Service ID:</TextBlock>
+                <TextBlock Name="tbUsID" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"> Service ID:</TextBlock>
+                <TextBlock Name="tbSID" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Times:</TextBlock>
+                <TextBlock Name="tbTimes" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Price:</TextBlock>
+                <TextBlock Name="tbPrice" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Date:</TextBlock>
+                <TextBlock Name="tbDate" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Padding="5" Name="btnEditUSDDetails" Click="btnEditUSDDetails_Click">Edit</Button>
+                <Button Margin="5" Padding="5" Name="btnDeleteUSDDetails" Click="btnDeleteUSDDetails_Click">Delete</Button>
+            </StackPanel>
+        </StackPanel>
+
+
+
+        <StackPanel Name="spUSDDetailsAE" DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Width="100">Used Service ID:</TextBlock>
+                <TextBox  Background="#cccccc" IsReadOnly="True" Name="tbxUsID" VerticalAlignment="Center" Width="150" 
+                         Style="{StaticResource errorTextBox}" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="usID" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validate:NumberValidation ></validate:NumberValidation>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Width="100"> Service ID:</TextBlock>
+                <TextBox Background="#cccccc" IsReadOnly="True" Name="tbxSID" VerticalAlignment="Center" Width="150" 
+                         Style="{StaticResource errorTextBox}" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="sID" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validate:NumberValidation ></validate:NumberValidation>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Width="100">Times:</TextBlock>
+                <TextBox Background="#cccccc" IsReadOnly="True" Name="tbxTimes" VerticalAlignment="Center" Width="150" 
+                         Style="{StaticResource errorTextBox}" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="times" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validate:NumberValidation ></validate:NumberValidation>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Margin="5" Width="100">Price:</TextBlock>
+                <TextBox Name="tbxPrice" VerticalAlignment="Center"   Width="150"
+                Style="{StaticResource errorTextBox}" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="price" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validate:NumberValidation ></validate:NumberValidation>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Width="100">Date:</TextBlock>
+                <DatePicker Name="dpDate" SelectedDateFormat="Short" 
+                   
+                  FirstDayOfWeek="Monday" Loaded="dpDate_Loaded"/>
+            </StackPanel>
+
+
+
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Padding="5" Name="btnAddUSDDetails" Click="btnAddUSDDetails_Click">Add</Button>
+                <Button Margin="5" Padding="5" Name="btnSaveUSDDetails" Click="btnSaveUSDDetails_Click">Save</Button>
+                <Button Margin="5" Padding="5" Name="btnCancelUSDDetails" Click="btnCancelUSDDetails_Click">Cancel</Button>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Name="tbErrorMessage" Foreground="Red" ></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+
+    </DockPanel>
+</Window>

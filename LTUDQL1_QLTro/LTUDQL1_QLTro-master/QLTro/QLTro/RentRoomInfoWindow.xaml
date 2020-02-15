@@ -1,0 +1,116 @@
+﻿<Window x:Class="QLTro.RentRoomInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+        xmlns:validate="clr-namespace:QLTro.validate"
+        mc:Ignorable="d"
+        Title="RentRoomInfoWindow" Height="300" Width="300" Closing="Window_Closing" >
+    <DockPanel>
+        <Label Name="lbTitle" FontSize="20" HorizontalAlignment="Center" DockPanel.Dock="Top">Thông Tin Sản Phẩm</Label>
+
+        <StackPanel Name="spRentRoomInfo" DockPanel.Dock="Top" Loaded="spRentRoomInfo_Loaded">
+            
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5">ID: </TextBlock>
+                    <TextBlock Name="tbID" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5">Room ID:</TextBlock>
+                    <TextBlock Name="tbRoomID" VerticalAlignment="Center" ></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5">Renter Name:</TextBlock>
+                    <TextBlock Name="tbRenterName" VerticalAlignment="Center" ></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5">Tel:</TextBlock>
+                    <TextBlock Name="tbTel" VerticalAlignment="Center" ></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5">Price:</TextBlock>
+                    <TextBlock Name="tbPrice" VerticalAlignment="Center" ></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5">Date:</TextBlock>
+                    <TextBlock Name="tbDate" VerticalAlignment="Center" ></TextBlock>
+                </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Padding="5" Name="btnCheckOutRentRoom" Click="btnCheckOutRentRoom_Click">Check Out</Button>
+
+                <Button Margin="5" Padding="5" Name="btnEditRentRoom" Click="btnEditRentRoom_Click">Edit</Button>
+                <Button Margin="5" Padding="5" Name="btnDeleteRentRoom" Click="btnDeleteRentRoom_Click">Delete</Button>
+            </StackPanel>
+            </StackPanel>
+            
+        
+       
+        <StackPanel Name="spRentRoomAE" DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Width="100">ID:</TextBlock>
+                <TextBox Background="#cccccc" IsReadOnly="True" Name="tbxID" VerticalAlignment="Center" Width="150" 
+                         Style="{StaticResource errorTextBox}" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="id" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validate:NumberValidation ></validate:NumberValidation>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Width="100">Room ID:</TextBlock>
+                <TextBox Name="tbxRoomID" VerticalAlignment="Center"  Width="150"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Margin="5" Width="100">Renter Name:</TextBlock>
+                <TextBox Name="tbxRenterName" VerticalAlignment="Center"  Width="150"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Width="100">Tel:</TextBlock>
+                <TextBox Name="tbxTel" VerticalAlignment="Center"  Width="150"
+                Style="{StaticResource errorTextBox}" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="tel" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validate:TelValidation min="6" max="8"></validate:TelValidation>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Margin="5" Width="100">Price:</TextBlock>
+                <TextBox Name="tbxPrice" VerticalAlignment="Center"   Width="150"
+                Style="{StaticResource errorTextBox}" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="price" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validate:NumberValidation ></validate:NumberValidation>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Width="100">Date:</TextBlock>
+                <DatePicker Name="dpDate" SelectedDateFormat="Short" 
+                   
+                  FirstDayOfWeek="Monday" Loaded="dpDate_Loaded"/>
+            </StackPanel>
+
+            
+        <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Padding="5" Name="btnAddRentRoom" Click="btnAddRentRoom_Click">Add</Button>
+                <Button Margin="5" Padding="5" Name="btnSaveRentRoom" Click="btnSaveRentRoom_Click">Save</Button>
+                <Button Margin="5" Padding="5" Name="btnCancelRentRoom" Click="btnCancelRentRoom_Click">Cancel</Button>
+        </StackPanel>
+            <StackPanel>
+                <TextBlock Name="tbErrorMessage" Foreground="Red" ></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+
+    </DockPanel>
+</Window>

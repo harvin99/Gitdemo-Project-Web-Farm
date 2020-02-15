@@ -1,0 +1,59 @@
+﻿<Window x:Class="QLTro.CheckOutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+        mc:Ignorable="d"
+        Title="CheckOutWindow" Height="300" Width="300">
+    <DockPanel>
+        <Label Name="lbTitle" FontSize="20" HorizontalAlignment="Center" DockPanel.Dock="Top">Thông Tin</Label>
+
+        <StackPanel Name="spRentRoomInfo" DockPanel.Dock="Top" Loaded="spRentRoomInfo_Loaded">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">ID:</TextBlock>
+                <TextBlock Name="tbID" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Room ID:</TextBlock>
+                <TextBlock Name="tbRoomID" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Renter Name:</TextBlock>
+                <TextBlock Name="tbRenterName" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Tel:</TextBlock>
+                <TextBlock Name="tbTel" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Price:</TextBlock>
+                <TextBlock Name="tbPrice" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5">Date:</TextBlock>
+                <TextBlock Name="tbDate" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <TabControl Name="tcUSDDetails">
+
+                <TabItem Header="Used Services">
+                    <DataGrid Name="dgUSDDetails" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="1.1*" Header="Service ID" Binding="{Binding sID}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="2*" Header="Times" Binding="{Binding times}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="2*" Header="Date" Binding="{Binding date}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="2*" Header="Price" Binding="{Binding price}"></DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                       
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="tbTotalPrice" Background="#cccccc" IsReadOnly="True" Width="100" Margin="5" Padding="5"></TextBox>
+                <Button Margin="5" Padding="5" Name="btnCheckOutRentRoom" Click="btnCheckOutRentRoom_Click">Check Out</Button>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>

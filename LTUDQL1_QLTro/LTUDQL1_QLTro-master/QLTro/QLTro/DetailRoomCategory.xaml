@@ -1,0 +1,78 @@
+﻿<Window x:Class="QLTro.DetailRoomCategory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+        mc:Ignorable="d"
+        Title="DetailRoomCategory" Height="370" Width="600" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:ImageFullPathConverter x:Key="converter"/>
+    </Window.Resources>
+    <Grid Background="AliceBlue">
+        <DockPanel Margin="5">
+            <Label FontSize="20" HorizontalAlignment="Center" DockPanel.Dock="Top">Thông Tin Loại Phòng</Label>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="btnRent" Margin="5" Padding="5" Click="btnRent_Click" >Rent</Button>
+
+                <Button Name="btapply" Margin="5" Padding="5" Click="btapply_Click" IsEnabled="False">Apply</Button>
+                <Button Name="btedit" Margin="5" Padding="5" Click="btedit_Click">Edit</Button>
+                <Button Name="btdelete" Margin="5" Padding="5" Click="btdelete_Click">Delete</Button>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Name="stackpennalshow"  Height="auto">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="5">Tên Loại Phòng:</TextBlock>
+                        <TextBlock Name="tblname" Width="200" Margin="5" Text="{Binding Path=Name}"></TextBlock>
+                        <TextBlock Margin="5">Gía:</TextBlock>
+                        <TextBlock Name="tblgia" Width="100" Margin="5" Text="{Binding Path=Price}"></TextBlock>
+                    </StackPanel>
+                    <TextBlock Margin="5">Description:</TextBlock>
+                    <TextBlock Name="tbldescription" Margin="5" Text="{Binding Path=Description}"></TextBlock>
+                    <TextBlock Margin="5">Images</TextBlock>
+                    <ListView Height="110" Margin="5" Name="lsviewshow" ItemsSource="{Binding Path=ImagesRoomCategories}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Height="100" Width="100" Source="{Binding Path=Source,Converter={StaticResource converter}}"></Image>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+                <StackPanel  Name="stackpennaledit" Height="0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="5">Tên Loại Phòng:</TextBlock>
+                        <TextBox Name="tbname" Width="200" Margin="5" Text="{Binding Path=Name}"></TextBox>
+                        <TextBlock Margin="5">Gía:</TextBlock>
+                        <TextBox Name="tbgia" Width="100" Margin="5" Text="{Binding Path=Price}"></TextBox>
+                    </StackPanel>
+                    <TextBlock Margin="5">Description:</TextBlock>
+                    <TextBox Margin="5" Text="{Binding Description}"></TextBox>
+                    <TextBlock Margin="5">Images</TextBlock>
+                    <ListView Height="110" Margin="5" Name="lsviewedit">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Height="100" Width="100" Source="{Binding Path=Source}"></Image>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Delete" Click="MenuItem_Click"></MenuItem>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+                    <Button Name="btchooseimage" Margin="5" Width="80" Click="btchooseimage_Click">Choose image</Button>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

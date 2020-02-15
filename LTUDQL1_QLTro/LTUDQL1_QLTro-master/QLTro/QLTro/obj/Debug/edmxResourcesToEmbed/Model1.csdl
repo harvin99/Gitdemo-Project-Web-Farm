@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RoomManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ImagesRoomCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCategory" Type="Int32" />
+    <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RoomCategory" Relationship="Self.FK_ImagesRoomCategory_ToTable" FromRole="ImagesRoomCategory" ToRole="RoomCategory" />
+  </EntityType>
+  <EntityType Name="RoomCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Single" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ImagesRoomCategories" Relationship="Self.FK_ImagesRoomCategory_ToTable" FromRole="RoomCategory" ToRole="ImagesRoomCategory" />
+    <NavigationProperty Name="Rooms" Relationship="RoomManagerModel.FK_Room_ToTable" FromRole="RoomCategory" ToRole="Room" />
+  </EntityType>
+  <Association Name="FK_ImagesRoomCategory_ToTable">
+    <End Role="RoomCategory" Type="Self.RoomCategory" Multiplicity="0..1" />
+    <End Role="ImagesRoomCategory" Type="Self.ImagesRoomCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ImagesRoomCategory">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RoomManagerEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ImagesRoomCategories" EntityType="Self.ImagesRoomCategory" />
+    <EntitySet Name="RoomCategories" EntityType="Self.RoomCategory" />
+    <AssociationSet Name="FK_ImagesRoomCategory_ToTable" Association="Self.FK_ImagesRoomCategory_ToTable">
+      <End Role="RoomCategory" EntitySet="RoomCategories" />
+      <End Role="ImagesRoomCategory" EntitySet="ImagesRoomCategories" />
+    </AssociationSet>
+    <EntitySet Name="RentRooms" EntityType="RoomManagerModel.RentRoom" />
+    <EntitySet Name="Services" EntityType="RoomManagerModel.Service" />
+    <EntitySet Name="UsedServices" EntityType="RoomManagerModel.UsedService" />
+    <AssociationSet Name="FK__UsedServi__rentR__4AB81AF0" Association="RoomManagerModel.FK__UsedServi__rentR__4AB81AF0">
+      <End Role="RentRoom" EntitySet="RentRooms" />
+      <End Role="UsedService" EntitySet="UsedServices" />
+    </AssociationSet>
+    <EntitySet Name="USDDetails" EntityType="RoomManagerModel.USDDetail" />
+    <AssociationSet Name="FK__USDDetails__sID__04E4BC85" Association="RoomManagerModel.FK__USDDetails__sID__04E4BC85">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="USDDetail" EntitySet="USDDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USDDetails__usID__03F0984C" Association="RoomManagerModel.FK__USDDetails__usID__03F0984C">
+      <End Role="UsedService" EntitySet="UsedServices" />
+      <End Role="USDDetail" EntitySet="USDDetails" />
+    </AssociationSet>
+    <EntitySet Name="Rooms" EntityType="RoomManagerModel.Room" />
+    <AssociationSet Name="FK__RentRoom__roomID__48CFD27E" Association="RoomManagerModel.FK__RentRoom__roomID__48CFD27E">
+      <End Role="Room" EntitySet="Rooms" />
+      <End Role="RentRoom" EntitySet="RentRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_ToTable" Association="RoomManagerModel.FK_Room_ToTable">
+      <End Role="RoomCategory" EntitySet="RoomCategories" />
+      <End Role="Room" EntitySet="Rooms" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="RentRoom">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roomID" Type="Int32" Nullable="false" />
+    <Property Name="renterName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Double" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="UsedServices" Relationship="RoomManagerModel.FK__UsedServi__rentR__4AB81AF0" FromRole="RentRoom" ToRole="UsedService" />
+    <NavigationProperty Name="Room" Relationship="RoomManagerModel.FK__RentRoom__roomID__48CFD27E" FromRole="RentRoom" ToRole="Room" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <NavigationProperty Name="USDDetails" Relationship="RoomManagerModel.FK__USDDetails__sID__04E4BC85" FromRole="Service" ToRole="USDDetail" />
+  </EntityType>
+  <EntityType Name="UsedService">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rentRoomID" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="Int32" />
+    <NavigationProperty Name="RentRoom" Relationship="RoomManagerModel.FK__UsedServi__rentR__4AB81AF0" FromRole="UsedService" ToRole="RentRoom" />
+    <NavigationProperty Name="USDDetails" Relationship="RoomManagerModel.FK__USDDetails__usID__03F0984C" FromRole="UsedService" ToRole="USDDetail" />
+  </EntityType>
+  <Association Name="FK__UsedServi__rentR__4AB81AF0">
+    <End Type="RoomManagerModel.RentRoom" Role="RentRoom" Multiplicity="1" />
+    <End Type="RoomManagerModel.UsedService" Role="UsedService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentRoom">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsedService">
+        <PropertyRef Name="rentRoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="USDDetail">
+    <Key>
+      <PropertyRef Name="usID" />
+      <PropertyRef Name="sID" />
+      <PropertyRef Name="times" />
+    </Key>
+    <Property Name="usID" Type="Int32" Nullable="false" />
+    <Property Name="sID" Type="Int32" Nullable="false" />
+    <Property Name="times" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Double" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Service" Relationship="RoomManagerModel.FK__USDDetails__sID__04E4BC85" FromRole="USDDetail" ToRole="Service" />
+    <NavigationProperty Name="UsedService" Relationship="RoomManagerModel.FK__USDDetails__usID__03F0984C" FromRole="USDDetail" ToRole="UsedService" />
+  </EntityType>
+  <Association Name="FK__USDDetails__sID__04E4BC85">
+    <End Type="RoomManagerModel.Service" Role="Service" Multiplicity="1" />
+    <End Type="RoomManagerModel.USDDetail" Role="USDDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="USDDetail">
+        <PropertyRef Name="sID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USDDetails__usID__03F0984C">
+    <End Type="RoomManagerModel.UsedService" Role="UsedService" Multiplicity="1" />
+    <End Type="RoomManagerModel.USDDetail" Role="USDDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsedService">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="USDDetail">
+        <PropertyRef Name="usID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCategory" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="RentRooms" Relationship="RoomManagerModel.FK__RentRoom__roomID__48CFD27E" FromRole="Room" ToRole="RentRoom" />
+    <NavigationProperty Name="RoomCategory" Relationship="RoomManagerModel.FK_Room_ToTable" FromRole="Room" ToRole="RoomCategory" />
+  </EntityType>
+  <Association Name="FK__RentRoom__roomID__48CFD27E">
+    <End Type="RoomManagerModel.Room" Role="Room" Multiplicity="1" />
+    <End Type="RoomManagerModel.RentRoom" Role="RentRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RentRoom">
+        <PropertyRef Name="roomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_ToTable">
+    <End Type="RoomManagerModel.RoomCategory" Role="RoomCategory" Multiplicity="0..1" />
+    <End Type="RoomManagerModel.Room" Role="Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

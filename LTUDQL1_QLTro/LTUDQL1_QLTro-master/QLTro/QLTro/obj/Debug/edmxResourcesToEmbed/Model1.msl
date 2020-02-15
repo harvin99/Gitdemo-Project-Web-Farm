@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RoomManagerModelStoreContainer" CdmEntityContainer="RoomManagerEntities2">
+    <EntitySetMapping Name="ImagesRoomCategories">
+      <EntityTypeMapping TypeName="RoomManagerModel.ImagesRoomCategory">
+        <MappingFragment StoreEntitySet="ImagesRoomCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomCategories">
+      <EntityTypeMapping TypeName="RoomManagerModel.RoomCategory">
+        <MappingFragment StoreEntitySet="RoomCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentRooms">
+      <EntityTypeMapping TypeName="RoomManagerModel.RentRoom">
+        <MappingFragment StoreEntitySet="RentRoom">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="renterName" ColumnName="renterName" />
+          <ScalarProperty Name="roomID" ColumnName="roomID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="RoomManagerModel.Service">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsedServices">
+      <EntityTypeMapping TypeName="RoomManagerModel.UsedService">
+        <MappingFragment StoreEntitySet="UsedServices">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="rentRoomID" ColumnName="rentRoomID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USDDetails">
+      <EntityTypeMapping TypeName="RoomManagerModel.USDDetail">
+        <MappingFragment StoreEntitySet="USDDetails">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="times" ColumnName="times" />
+          <ScalarProperty Name="sID" ColumnName="sID" />
+          <ScalarProperty Name="usID" ColumnName="usID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="RoomManagerModel.Room">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

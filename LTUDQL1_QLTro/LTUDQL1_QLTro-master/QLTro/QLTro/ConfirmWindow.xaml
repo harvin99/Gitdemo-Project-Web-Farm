@@ -1,0 +1,16 @@
+﻿<Window x:Class="QLTro.ConfirmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+        mc:Ignorable="d"
+        Title="ConfirmWindow" Height="100" Width="250">
+    <DockPanel Background="AliceBlue">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+            <Button Name="btok" Margin="5" Click="btok_Click">Ok</Button>
+            <Button Name="btcancel" Margin="5" Click="btcancel_Click">Cancel</Button>
+        </StackPanel>
+        <Label VerticalAlignment="Center" HorizontalAlignment="Center" Name="lbdescription"></Label>
+    </DockPanel>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="QLTro.analysisWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTro"
+         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="analysisWindow" Height="300" Width="300">
+    <Grid>
+        <lvc:PieChart Name="chartPoint" Hoverable="False" DataTooltip="{x:Null}" LegendLocation="Bottom" DataClick="PieChart_DataClick">
+            <lvc:PieChart.Series>
+                <lvc:PieSeries Values="3" Title="Maria" DataLabels="True"/>
+                <lvc:PieSeries Values="7" Title="Jackson" DataLabels="True"/>
+                <lvc:PieSeries Values="8" Title="Elsa" DataLabels="True"/>
+            </lvc:PieChart.Series>
+        </lvc:PieChart>
+    </Grid>
+</Window>
